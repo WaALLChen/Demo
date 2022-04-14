@@ -1,13 +1,9 @@
 package com.example.demo.Dao;
 
 import com.example.demo.Entity.TestEntity;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
-@Repository
 public interface TestEntityMapper {
     List<TestEntity> queryTestEntityList();
 
