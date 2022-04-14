@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Entity.TestEntity;
-import com.example.demo.Service.TestService;
+import com.example.demo.Service.TestMybatis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +13,10 @@ import java.util.List;
 @RequestMapping("/test")
 public class ControllerDemo {
     @Autowired
-    private TestService testService;
+    private TestMybatis testMybatis;
 
-    @GetMapping("getDBTestList")
-    public List<TestEntity> getString(){
-        return testService.getTestEntityList();
+    @GetMapping("getDBTestListByMybatis")
+    public List<TestEntity> getDBTestListByMybatis(){
+        return testMybatis.getTestEntityList();
     }
 }

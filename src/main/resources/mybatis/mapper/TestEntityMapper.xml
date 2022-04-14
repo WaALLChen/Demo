@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.TestEntityMapper">
+
+    <resultMap id="TestEntity" type="com.example.demo.Entity.TestEntity">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <select id="queryTestEntityList" resultMap="TestEntity">
+        select * from test
+    </select>
+
+    <select id="queryTestEntityById" resultType="com.example.demo.Entity.TestEntity">
+        select * from test where id = #{id}
+    </select>
+
+    <insert id="addTestEntity" parameterType="com.example.demo.Entity.TestEntity">
+        insert into test(id,name) values(#{id}, #{name})
+    </insert>
+
+    <update id="updateTestEntity" parameterType="com.example.demo.Entity.TestEntity">
+        update test set name=#{name} where id=#{id}
+    </update>
+
+    <delete id="deleteTestEntity" parameterType="java.lang.Long">
+        delete test where id = #{id}
+    </delete>
+
+</mapper>
