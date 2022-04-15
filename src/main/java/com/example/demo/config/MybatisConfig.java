@@ -3,7 +3,6 @@ package com.example.demo.config;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +39,7 @@ public class MybatisConfig {
         config.setPassword(password);
         config.setConnectionInitSql("SET names 'utf8mb4'");
         config.setJdbcUrl(url);
+        config.setPoolName(poolName);
         return new HikariDataSource(config);
     }
 }
